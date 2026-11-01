@@ -29,43 +29,47 @@ Formato do CSV (combinado entre C++ e Python):
     pip install pandas matplotlib
     make plots
 
-´´´bash
+## Estrutura do Projeto
+
+```bash
 graph-coloring/
-├── README.md                  
-├── CMakeLists.txt             # build
-├── .gitignore                 # build/, data/instances/, results/
+├── README.md
+├── Makefile                          # build: make, make run, make test
+├── CMakeLists.txt                    # alternativa ao Makefile
+├── .gitignore
 │
-├── src/
-│   ├── main.cpp              
-│   ├── core/
-│   │   ├── Graph.hpp/.cpp     
-│   │   ├── Coloring.hpp      
+├── src/                              # código-fonte (C++)
+│   ├── main.cpp                      # ponto de entrada
+│   ├── core/                         # grafo, coloração e validador
+│   │   ├── Graph.hpp/.cpp
+│   │   ├── Coloring.hpp
 │   │   └── Validator.hpp/.cpp
-│   ├── heuristics/
-│   │   ├── Greedy.hpp/.cpp         # sequencial
+│   ├── heuristics/                   # uma heurística por arquivo
+│   │   ├── Greedy.hpp/.cpp           # sequencial (gulosa)
 │   │   ├── WelshPowell.hpp/.cpp
 │   │   └── Dsatur.hpp/.cpp
-│   ├── generator/
-│   │   └── RandomGraph.hpp/.cpp    # grafos aleatórios (com seed)
-│   ├── benchmark/
-│   │   └── Benchmark.hpp/.cpp      # roda tudo, mede tempo, escreve o CSV
-│   └── io/
-│       ├── GraphIO.hpp/.cpp        # ler/escrever grafo em arquivo
+│   ├── generator/                    # grafos aleatórios (seed fixa)
+│   │   └── RandomGraph.hpp/.cpp
+│   ├── benchmark/                    # roda as heurísticas, mede tempo, gera CSV
+│   │   └── Benchmark.hpp/.cpp
+│   └── io/                           # leitura/escrita de grafos e CSV
+│       ├── GraphIO.hpp/.cpp
 │       └── CsvWriter.hpp/.cpp
 │
-├── tests/                     # testes pequenos (grafos conhecidos, validador)
+├── tests/                            # testes com grafos pequenos conhecidos
+│   └── test_main.cpp
 │
 ├── data/
-│   ├── instances/             # grafos gerados (n50/, n100/, ...), não vai pro Git
-│   └── practical_case/        # dados do caso prático
+│   ├── instances/                    # grafos gerados (não versionado)
+│   └── practical_case/               # dados do caso prático
 │
-├── results/                   # CSVs gerados pelo benchmark
+├── results/                          # CSVs do benchmark (não versionado)
 │
 ├── scripts/
-│   └── plot_results.py       # lê os CSVs e gera tabela e gráficos
+│   └── plot_results.py               # CSV -> gráficos e tabelas (Python)
 │
-└── assets/
-    ├── report/                # relatório (versões e figuras usadas nele)
-    ├── charts/                # gráficos gerados pelo Python
-    └── slides/                # apresentação
-´´´
+└── assets/                           # entregáveis que não são código
+    ├── report/                       # relatório
+    ├── charts/                       # gráficos gerados
+    └── slides/                       # apresentação
+```
