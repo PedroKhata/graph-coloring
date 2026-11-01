@@ -69,7 +69,7 @@ graph-coloring/
 │   └── plot_results.py               # CSV -> gráficos e tabelas (Python)
 │
 └── assets/                           # entregáveis que não são código
-    ├── report/                       # relatório
-    ├── charts/                       # gráficos gerados
+    ├── relatorio/                       # relatório
+    ├── gráficos/                     # gráficos gerados
     └── slides/                       # apresentação
 ```
