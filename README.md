@@ -29,6 +29,7 @@ Formato do CSV (combinado entre C++ e Python):
     pip install pandas matplotlib
     make plots
 
+´´´bash
 graph-coloring/
 ├── README.md                  
 ├── CMakeLists.txt             # build
@@ -37,9 +38,9 @@ graph-coloring/
 ├── src/
 │   ├── main.cpp              
 │   ├── core/
-│   │   ├── Graph.hpp/.cpp     # lista de adjacência, graus, vizinhos
-│   │   ├── Coloring.hpp       # resultado: cor de cada vértice, nº de cores
-│   │   └── Validator.hpp/.cpp # confere se a coloração é válida
+│   │   ├── Graph.hpp/.cpp     
+│   │   ├── Coloring.hpp      
+│   │   └── Validator.hpp/.cpp
 │   ├── heuristics/
 │   │   ├── Greedy.hpp/.cpp         # sequencial
 │   │   ├── WelshPowell.hpp/.cpp
@@ -67,3 +68,4 @@ graph-coloring/
     ├── report/                # relatório (versões e figuras usadas nele)
     ├── charts/                # gráficos gerados pelo Python
     └── slides/                # apresentação
+´´´
