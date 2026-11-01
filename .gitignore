@@ -1,0 +1,13 @@
+# build
+build/
+*.o
+*.d
+
+# gerados (podem ser recriados com a seed fixa do gerador)
+data/instances/*
+!data/instances/.gitkeep
+results/*
+!results/.gitkeep
+
+# python
+__pycache__/
